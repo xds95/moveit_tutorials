@@ -970,7 +970,7 @@ Note that you will need to input the path to the right file you have created abo
 <a class="reference internal image-reference" href="../../_images/obstacle_avoidance.gif"><img alt="../../_images/obstacle_avoidance.gif" src="../../_images/obstacle_avoidance.gif" style="width: 700px;" /></a>
 <div class="section" id="running-the-interface">
 <h3>Running the Interface<a class="headerlink" href="#running-the-interface" title="Permalink to this headline">¶</a></h3>
-<p>Roslaunch the launch file to run the code directly from moveit_tutorials:</p>
+<p>Launch the prepared launch file in moveit_tutorials to see the planning scene integrating sample point cloud data into an octomap:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">moveit_tutorials</span> <span class="n">obstacle_avoidance_demo</span><span class="o">.</span><span class="n">launch</span>
 </pre></div>
 </div>
@@ -978,7 +978,7 @@ Note that you will need to input the path to the right file you have created abo
 If not, you may have run into a <a class="reference external" href="http://wiki.ros.org/rviz/Troubleshooting">known OpenGL rendering issue</a>. To work around the issue, you can force CPU-based rendering with this command:</p>
 <blockquote>
 <div>export LIBGL_ALWAYS_SOFTWARE=1</div></blockquote>
-<p>You can test obstacle avoidance for yourself by setting the goal state manually and then planning and executing. To learn how to do that look at <a class="reference external" href="../quickstart_in_rviz/quickstart_in_rviz_tutorial.html">MoveIt Quickstart in RViz</a></p>
+<p>You can test obstacle avoidance with the generated octomap for yourself by setting the goal state manually and then planning and executing. To learn how to do that look at <a class="reference external" href="../quickstart_in_rviz/quickstart_in_rviz_tutorial.html">MoveIt Quickstart in RViz</a></p>
 </div>
 </div>
 <div class="section" id="detecting-and-adding-object-as-collision-object">
@@ -989,17 +989,10 @@ We will be working with point clouds but it can be implemented similarly with de
 <a class="reference internal image-reference" href="../../_images/cylinder_collision_object.png"><img alt="../../_images/cylinder_collision_object.png" src="../../_images/cylinder_collision_object.png" style="width: 700px;" /></a>
 <div class="section" id="running-the-code">
 <h3>Running the Code<a class="headerlink" href="#running-the-code" title="Permalink to this headline">¶</a></h3>
-<p>Roslaunch the launch file to run the code directly from moveit_tutorials:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="n">moveit_tutorials</span> <span class="n">detect_and_add_cylinder_collision_object_demo</span><span class="o">.</span><span class="n">launch</span>
+<p>Keep the launch file from above running and run the code directly from moveit_tutorials:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">moveit_tutorials</span> <span class="n">detect_and_add_cylinder_collision_object_demo</span>
 </pre></div>
 </div>
-<p>KNOWN ISSUE - You may see the following error when running the demo</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros</span><span class="o">.</span><span class="n">moveit_ros_planning</span><span class="o">.</span><span class="n">planning_scene_monitor</span><span class="p">:</span> <span class="n">Transform</span> <span class="n">error</span><span class="p">:</span> <span class="n">Lookup</span> <span class="n">would</span> <span class="n">require</span> <span class="n">extrapolation</span> <span class="n">into</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>  <span class="n">Requested</span> <span class="n">time</span> <span class="mf">1527473962.793050157</span> <span class="n">but</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">data</span> <span class="ow">is</span> <span class="n">at</span> <span class="n">time</span> <span class="mf">1527473962.776993978</span><span class="p">,</span> <span class="n">when</span> <span class="n">looking</span> <span class="n">up</span> <span class="n">transform</span> <span class="kn">from</span> <span class="nn">frame</span> <span class="p">[</span><span class="n">panda_link2</span><span class="p">]</span> <span class="n">to</span> <span class="n">frame</span> <span class="p">[</span><span class="n">camera_rgb_optical_frame</span><span class="p">]</span>
-<span class="n">ros</span><span class="o">.</span><span class="n">moveit_ros_perception</span><span class="p">:</span> <span class="n">Transform</span> <span class="n">cache</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">updated</span><span class="o">.</span> <span class="n">Self</span><span class="o">-</span><span class="n">filtering</span> <span class="n">may</span> <span class="n">fail</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>We are working on fixing it, it should not break the working of the demo.
-You can follow its status in the <a class="reference external" href="https://github.com/ros-planning/moveit_tutorials/issues/192">issue tracker</a></p>
 </div>
 <div class="section" id="relevant-code">
 <h3>Relevant Code<a class="headerlink" href="#relevant-code" title="Permalink to this headline">¶</a></h3>
@@ -1007,17 +1000,18 @@ You can follow its status in the <a class="reference external" href="https://git
 <p>The details regarding the implementation of each of the perception pipeline function have been omitted in this tutorial as they are well documented <a class="reference external" href="http://wiki.ros.org/pcl/Tutorials">here</a>.</p>
 <div class="section" id="perception-related">
 <h4>Perception Related<a class="headerlink" href="#perception-related" title="Permalink to this headline">¶</a></h4>
-<p>First, convert from sensor_msgs to pcl::PointXYZRGB which is needed for most of the processing.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGB</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZRGB</span><span class="o">&gt;</span><span class="p">);</span>
+<p>This section uses a standard PCL-based processing pipeline to estimate a cylinder’s pose in the point cloud.</p>
+<p>First, we convert from sensor_msgs to pcl::PointXYZ which is needed for most of the processing.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">PointXYZ</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="n">pcl</span><span class="o">::</span><span class="n">fromROSMsg</span><span class="p">(</span><span class="o">*</span><span class="n">input</span><span class="p">,</span> <span class="o">*</span><span class="n">cloud</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Using passthough filter to get region of interest. A passthrough filter just eliminates the point cloud values
-which do not lie in the user specified range.</p>
+<p>Use a passthrough filter to get the region of interest.
+The filter removes points outside the specified range.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">passThroughFilter</span><span class="p">(</span><span class="n">cloud</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Declare normals and call function to compute point normals.</p>
+<p>Compute point normals for later sample consensus step.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">Normal</span><span class="o">&gt;::</span><span class="n">Ptr</span> <span class="n">cloud_normals</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&lt;</span><span class="n">pcl</span><span class="o">::</span><span class="n">Normal</span><span class="o">&gt;</span><span class="p">);</span>
 <span class="n">computeNormals</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">cloud_normals</span><span class="p">);</span>
 </pre></div>
@@ -1026,22 +1020,20 @@ which do not lie in the user specified range.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">PointIndices</span><span class="o">::</span><span class="n">Ptr</span> <span class="n">inliers_plane</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">PointIndices</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>Detect and eliminate the plane on which the cylinder is kept to ease the process of finding the cylinder.</p>
+<p>Detect and remove points on the (planar) surface on which the cylinder is resting.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">removePlaneSurface</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">inliers_plane</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>We had calculated the point normals in a previous call to computeNormals,
-now we will be extracting the normals that correspond to the plane on which cylinder lies.
-It will be used to extract the cylinder.</p>
+<p>Remove surface points from normals as well</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">extractNormals</span><span class="p">(</span><span class="n">cloud_normals</span><span class="p">,</span> <span class="n">inliers_plane</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>ModelCoefficients will hold the parameters using which we can define a cylinder of infinite length.
 It has a public attribute <code> values</code> of type <code> std::vector&lt;float&gt;</code>.
 <br />
-<code> Values[0-2]</code> hold a point on the center line of the cylinder. <br />
-<code> Values[3-5]</code> hold direction vector of the z-axis. <br />
-<code> Values[6]</code> is the radius of the cylinder.</p>
+<code> values[0-2]</code> hold a point on the center line of the cylinder. <br />
+<code> values[3-5]</code> hold direction vector of the z-axis. <br />
+<code> values[6]</code> is the radius of the cylinder.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">pcl</span><span class="o">::</span><span class="n">ModelCoefficients</span><span class="o">::</span><span class="n">Ptr</span> <span class="n">coefficients_cylinder</span><span class="p">(</span><span class="k">new</span> <span class="n">pcl</span><span class="o">::</span><span class="n">ModelCoefficients</span><span class="p">);</span>
 <span class="cm">/* Extract the cylinder using SACSegmentation. */</span>
 <span class="n">extractCylinder</span><span class="p">(</span><span class="n">cloud</span><span class="p">,</span> <span class="n">coefficients_cylinder</span><span class="p">,</span> <span class="n">cloud_normals</span><span class="p">);</span>
@@ -1060,7 +1052,7 @@ There are 4 fields and a total of 7 parameters used to define this.</p>
 <span class="p">{</span>
   <span class="cm">/* Radius of the cylinder. */</span>
   <span class="kt">double</span> <span class="n">radius</span><span class="p">;</span>
-  <span class="cm">/* Direction vector towards the z-axis of the cylinder. */</span>
+  <span class="cm">/* Direction vector along the z-axis of the cylinder. */</span>
   <span class="kt">double</span> <span class="n">direction_vec</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
   <span class="cm">/* Center point of the cylinder. */</span>
   <span class="kt">double</span> <span class="n">center_pt</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
@@ -1070,13 +1062,13 @@ There are 4 fields and a total of 7 parameters used to define this.</p>
 </pre></div>
 </div>
 <p>Declare a variable of type AddCylinderParams and store relevant values from ModelCoefficients.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">AddCylinderParams</span><span class="o">*</span> <span class="n">cylinder_params</span><span class="p">;</span>
-    <span class="cm">/* Store the radius of the cylinder. */</span>
-    <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">radius</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
-    <span class="cm">/* Store direction vector of z-axis of cylinder. */</span>
-    <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
-    <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-    <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">AddCylinderParams</span> <span class="n">cylinder_params</span><span class="p">;</span>
+  <span class="cm">/* Store the radius of the cylinder. */</span>
+  <span class="n">cylinder_params</span><span class="p">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+  <span class="cm">/* Store direction vector of z-axis of cylinder. */</span>
+  <span class="n">cylinder_params</span><span class="p">.</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+  <span class="n">cylinder_params</span><span class="p">.</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+  <span class="n">cylinder_params</span><span class="p">.</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients_cylinder</span><span class="o">-&gt;</span><span class="n">values</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
 </pre></div>
 </div>
 </div>
@@ -1120,11 +1112,11 @@ Loop over the entire pointcloud.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 <span class="cm">/* Store the center point of cylinder */</span>
-<span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">highest_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">lowest_point</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">highest_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">lowest_point</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-<span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">highest_point</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">lowest_point</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">cylinder_params</span><span class="p">.</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">highest_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">lowest_point</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">cylinder_params</span><span class="p">.</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">highest_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">lowest_point</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">cylinder_params</span><span class="p">.</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">highest_point</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">lowest_point</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
 <span class="cm">/* Store the height of cylinder */</span>
-<span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">height</span> <span class="o">=</span>
+<span class="n">cylinder_params</span><span class="p">.</span><span class="n">height</span> <span class="o">=</span>
     <span class="n">sqrt</span><span class="p">(</span><span class="n">pow</span><span class="p">((</span><span class="n">lowest_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">highest_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">pow</span><span class="p">((</span><span class="n">lowest_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">highest_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span>
          <span class="n">pow</span><span class="p">((</span><span class="n">lowest_point</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">highest_point</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="mi">2</span><span class="p">));</span>
 </pre></div>
@@ -1147,16 +1139,16 @@ Loop over the entire pointcloud.</p>
 <span class="n">primitive</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">primitive</span><span class="p">.</span><span class="n">CYLINDER</span><span class="p">;</span>
 <span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="cm">/* Setting height of cylinder. */</span>
-<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">;</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
 <span class="cm">/* Setting radius of cylinder. */</span>
-<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">radius</span><span class="p">;</span>
+<span class="n">primitive</span><span class="p">.</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="p">.</span><span class="n">radius</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Define a pose for the cylinder (specified relative to frame_id).</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">geometry_msgs</span><span class="o">::</span><span class="n">Pose</span> <span class="n">cylinder_pose</span><span class="p">;</span>
 <span class="cm">/* Computing and setting quaternion from axis angle representation. */</span>
-<span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">cylinder_z_direction</span><span class="p">(</span><span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                                     <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">cylinder_z_direction</span><span class="p">(</span><span class="n">cylinder_params</span><span class="p">.</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cylinder_params</span><span class="p">.</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                                     <span class="n">cylinder_params</span><span class="p">.</span><span class="n">direction_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">origin_z_direction</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">);</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">axis</span><span class="p">;</span>
 <span class="n">axis</span> <span class="o">=</span> <span class="n">origin_z_direction</span><span class="p">.</span><span class="n">cross</span><span class="p">(</span><span class="n">cylinder_z_direction</span><span class="p">);</span>
@@ -1169,16 +1161,16 @@ Loop over the entire pointcloud.</p>
 </pre></div>
 </div>
 <p>Setting the position of cylinder.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">cylinder_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
-<span class="n">cylinder_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-<span class="n">cylinder_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="o">-&gt;</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">cylinder_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="p">.</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">cylinder_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="p">.</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">cylinder_pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">cylinder_params</span><span class="p">.</span><span class="n">center_pt</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 </pre></div>
 </div>
 <p>Add cylinder as collision object</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">collision_object</span><span class="p">.</span><span class="n">primitives</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">primitive</span><span class="p">);</span>
 <span class="n">collision_object</span><span class="p">.</span><span class="n">primitive_poses</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">cylinder_pose</span><span class="p">);</span>
 <span class="n">collision_object</span><span class="p">.</span><span class="n">operation</span> <span class="o">=</span> <span class="n">collision_object</span><span class="p">.</span><span class="n">ADD</span><span class="p">;</span>
-<span class="n">planning_scene_interface</span><span class="p">.</span><span class="n">applyCollisionObject</span><span class="p">(</span><span class="n">collision_object</span><span class="p">);</span>
+<span class="n">planning_scene_interface_</span><span class="p">.</span><span class="n">applyCollisionObject</span><span class="p">(</span><span class="n">collision_object</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
