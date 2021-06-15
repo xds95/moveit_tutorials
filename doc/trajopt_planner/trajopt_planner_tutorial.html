@@ -898,11 +898,13 @@
 <h2>How TrajOpt works<a class="headerlink" href="#how-trajopt-works" title="Permalink to this headline">¶</a></h2>
 <p>Motion planning problem in TrajOpt is defined by a set of cost (COST) and constraints (CNT) functions that are added to <code class="docutils literal notranslate"><span class="pre">TrajOptProblem</span></code> through <code class="docutils literal notranslate"><span class="pre">ConstructProblem</span></code> function. This function gets the information regarding to the problem (<code class="docutils literal notranslate"><span class="pre">ProblemInfo</span></code>) which carries different types of information explained below:</p>
 <ul class="simple">
-<li><strong>BasicInfo</strong>: This type holds general information of the optimization algorithm. (These parameters are further investigated in the following section):
-* <cite>n_steps</cite>: The number of steps from start to goal
-* <cite>convex_solver</cite>: Which convex solver is to be used
-* <cite>use_time</cite>: Set to <cite>false</cite> value to use a unitless timestep. x1-x0 is the velocity
-* <cite>start_fixed</cite>: Set to <cite>true</cite> to add a constraint for the current joint value</li>
+<li><strong>BasicInfo</strong>: This type holds general information of the optimization algorithm. (These parameters are further investigated in the following section):<ul>
+<li><em>n_steps</em>: The number of steps from start to goal</li>
+<li><em>convex_solver</em>: Which convex solver is to be used</li>
+<li><em>use_time</em>: Set to <cite>false</cite> value to use a unitless timestep. x1-x0 is the velocity</li>
+<li><em>start_fixed</em>: Set to <cite>true</cite> to add a constraint for the current joint value</li>
+</ul>
+</li>
 <li><strong>InitInfo</strong>: It defines how to initialize the optimization problem by setting a guessed trajectory in a matrix whose number of rows is the same as number of timesteps and whose number of columns is equal to the degrees of freedom. There are three different types for initialization:<ul>
 <li><em>STATIONARY</em>: the initialization matrix has joint values of the current state for all timesteps.</li>
 <li><em>JOINT_INTERPOLATED</em>: the initialization matrix is a trajectory interpolated between the current state and the joint state that the user provides for <code class="docutils literal notranslate"><span class="pre">data</span></code> member.</li>
