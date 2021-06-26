@@ -886,6 +886,8 @@ To follow the recommended, docker-based approach, ensure you have docker install
 </pre></div>
 </div>
 <p>You need to log off/log on in order to actually activate this permission change.</p>
+<blockquote>
+<div>Note: To run docker from <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL2</a>, you need to install the <a class="reference external" href="https://docs.docker.com/docker-for-windows/wsl">Docker Desktop WSL 2 backend</a>.</div></blockquote>
 <p>Install the MoveIt IKFast package either from Debian packages or from source.</p>
 <p><strong>Binary Install</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt-get install ros-${ROS_DISTRO}-moveit-kinematics
@@ -902,7 +904,7 @@ catkin build
 <div class="section" id="creating-the-ikfast-moveit-plugin">
 <h2>Creating the IKFast MoveIt plugin<a class="headerlink" href="#creating-the-ikfast-moveit-plugin" title="Permalink to this headline">¶</a></h2>
 <p>To facilitate copy-and-paste, we suggest to define the robot name as an environment variable:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">MYROBOT_NAME</span><span class="o">=</span><span class="s2">&quot;panda_arm&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">MYROBOT_NAME</span><span class="o">=</span><span class="s2">&quot;panda&quot;</span>
 </pre></div>
 </div>
 <p>OpenRAVE uses Collada instead of URDF to describe the robot. In order to automatically convert your robot’s URDF to Collada, you need to provide the .urdf file.
@@ -926,7 +928,8 @@ The following instructions will assume you have chosen one <code class="docutils
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rosrun moveit_kinematics auto_create_ikfast_moveit_plugin.sh --iktype Transform6D $MYROBOT_NAME.urdf &lt;planning_group_name&gt; &lt;base_link&gt; &lt;eef_link&gt;
 </pre></div>
 </div>
-<p>The speed and success of this process will depend on the complexity of your robot. A typical 6 DOF manipulator with 3 intersecting axes at the base or wrist will take only a few minutes to generate the solver code. For a detailed explanation of the creation procedure and additional tweaks of the process, see <a class="reference internal" href="#tweaking-the-creation-process">Tweaking the creation process</a>.</p>
+<p>Replace the last three positional parameters with the correct <code class="docutils literal notranslate"><span class="pre">planning_group_name</span></code> as well as the names of the base link and the end-effector link of your robot.
+The speed and success of this process will depend on the complexity of your robot. A typical 6 DOF manipulator with 3 intersecting axes at the base or wrist will take only a few minutes to generate the solver code. For a detailed explanation of the creation procedure and additional tweaks of the process, see <a class="reference internal" href="#tweaking-the-creation-process">Tweaking the creation process</a>.</p>
 <p>The command above creates a new ROS package named <code class="docutils literal notranslate"><span class="pre">$MYROBOT_NAME_&lt;planning_group_name&gt;_ikfast_plugin</span></code> within the current folder.
 Thus, you need to rebuild your workspace so the new package is detected:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">catkin</span> <span class="n">build</span>
@@ -942,12 +945,15 @@ Thus, you need to rebuild your workspace so the new package is detected:</p>
 </div>
 <p>Edit these parts:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">planning_group</span><span class="o">&gt;</span><span class="p">:</span>
-  <span class="n">kinematics_solver</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">myrobot_name</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">planning_group</span><span class="o">&gt;</span><span class="n">_ikfast_plugin</span><span class="o">/</span><span class="n">IKFastKinematicsPlugin</span>
+  <span class="n">kinematics_solver</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">myrobot_name</span><span class="o">&gt;</span><span class="n">_</span><span class="o">&lt;</span><span class="n">planning_group</span><span class="o">&gt;/</span><span class="n">IKFastKinematicsPlugin</span>
 </pre></div>
 </div>
 <div class="section" id="test-the-plugin">
 <h3>Test the Plugin<a class="headerlink" href="#test-the-plugin" title="Permalink to this headline">¶</a></h3>
-<p>Use the MoveIt RViz Motion Planning Plugin and use the interactive markers to see if correct IK Solutions are found.</p>
+<p>Use the MoveIt RViz Motion Planning Plugin and use the interactive markers to see if correct IK Solutions are found:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roslaunch</span> <span class="s2">&quot;$MYROBOT_NAME&quot;</span><span class="n">_moveit_config</span> <span class="n">demo</span><span class="o">.</span><span class="n">launch</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="updating-the-plugin">
