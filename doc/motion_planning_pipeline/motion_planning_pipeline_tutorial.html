@@ -909,11 +909,10 @@ startStateMonitor to fully initialize the planning scene monitor</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">planning_scene_monitor</span><span class="o">::</span><span class="n">PlanningSceneMonitorPtr</span> <span class="n">psm</span><span class="p">(</span>
     <span class="k">new</span> <span class="n">planning_scene_monitor</span><span class="o">::</span><span class="n">PlanningSceneMonitor</span><span class="p">(</span><span class="n">robot_model_loader</span><span class="p">));</span>
 
-<span class="cm">/* listen for planning scene messages on topic /XXX and apply them to the internal planning scene</span>
+<span class="cm">/* listen for planning scene messages on topic /XXX and apply them to</span>
 <span class="cm">                     the internal planning scene accordingly */</span>
 <span class="n">psm</span><span class="o">-&gt;</span><span class="n">startSceneMonitor</span><span class="p">();</span>
-<span class="cm">/* listens to changes of world geometry, collision objects, and (optionally) octomaps</span>
-<span class="cm">                              world geometry, collision objects and optionally octomaps */</span>
+<span class="cm">/* listens to changes of world geometry, collision objects, and (optionally) octomaps */</span>
 <span class="n">psm</span><span class="o">-&gt;</span><span class="n">startWorldGeometryMonitor</span><span class="p">();</span>
 <span class="cm">/* listen to joint state updates as well as changes in attached collision objects</span>
 <span class="cm">                      and update the internal planning scene accordingly*/</span>
