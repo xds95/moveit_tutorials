@@ -1,0 +1,5 @@
+<map id="ompl_interface::ModelBasedStateSpaceFactory" name="ompl_interface::ModelBasedStateSpaceFactory">
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,213,80"/>
+<area shape="rect" id="node2" href="$classompl__interface_1_1JointModelStateSpaceFactory.html" title=" " alt="" coords="262,5,459,47"/>
+<area shape="rect" id="node3" href="$classompl__interface_1_1PoseModelStateSpaceFactory.html" title=" " alt="" coords="261,71,460,112"/>
+</map>

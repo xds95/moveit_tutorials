@@ -1,0 +1,41 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_resources_prbt_moveit_config
+- code_coverage
+- tf2
+- pluginlib
+- roscpp
+- joint_limits_interface
+- moveit_resources_prbt_pg70_support
+- orocos_kdl
+- tf2_geometry_msgs
+- cmake_modules
+- moveit_ros_planning_interface
+- moveit_msgs
+- moveit_resources_prbt_support
+- rostest
+- rosunit
+- tf2_kdl
+- moveit_ros_move_group
+- moveit_ros_planning
+- catkin
+- liborocos-kdl-dev
+- moveit_resources_panda_moveit_config
+- tf2_eigen
+- tf2_ros
+- moveit_core
+- pilz_industrial_motion_planner_testutils
+description: MoveIt plugin to generate industrial trajectories PTP, LIN, CIRC and
+  sequences thereof.
+license: BSD
+maintainers: Alexander Gutenkunst <a.gutenkunst@pilz.de>, Christian Henkel <c.henkel@pilz.de>,
+  Immanuel Martini <i.martini@pilz.de>, Joachim Schleicher <j.schleicher@pilz.de>,
+  Hagen Slusarek <h.slusarek@pilz.de>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

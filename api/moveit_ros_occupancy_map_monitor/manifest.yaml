@@ -1,0 +1,23 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>, Jon Binney <jon.binney@gmail.com>, Suat Gedikli
+  <gedikli@willowgarage.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- geometric_shapes
+- octomap
+- moveit_msgs
+- rosunit
+- moveit_core
+- pluginlib
+- eigen
+- catkin
+- tf2_ros
+description: Components of MoveIt connecting to occupancy map
+license: BSD
+maintainers: Michael Ferguson <mferguson@fetchrobotics.com>, MoveIt Release Team <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

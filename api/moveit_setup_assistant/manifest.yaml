@@ -1,0 +1,31 @@
+actions: []
+authors: Dave Coleman <dave@picknik.ai>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- ompl
+- moveit_ros_planning
+- moveit_resources_panda_moveit_config
+- libogre-dev
+- roscpp
+- yaml-cpp
+- xacro
+- rosunit
+- libqt5-opengl-dev
+- moveit_core
+- moveit_ros_visualization
+- urdf
+- srdfdom
+- qtbase5-dev
+- catkin
+- rosconsole
+- rviz
+description: Generates a configuration package that makes it easy to use MoveIt
+license: BSD
+maintainers: Dave Coleman <dave@picknik.ai>, Robert Haschke <rhaschke@techfak.uni-bielefeld.de>,
+  MoveIt Release Team <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

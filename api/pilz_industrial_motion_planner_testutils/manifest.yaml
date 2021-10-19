@@ -1,0 +1,20 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_commander
+- moveit_core
+- catkin
+- moveit_msgs
+- tf2_eigen
+description: Helper scripts and functionality to test industrial motion generation
+license: BSD
+maintainers: Alexander Gutenkunst <a.gutenkunst@pilz.de>, Christian Henkel <c.henkel@pilz.de>,
+  Immanuel Martini <i.martini@pilz.de>, Joachim Schleicher <j.schleicher@pilz.de>,
+  Hagen Slusarek <h.slusarek@pilz.de>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

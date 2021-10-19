@@ -1,0 +1,26 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>, Sachin Chitta <robot.moveit@gmail.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_ros_planning
+- roscpp
+- moveit_msgs
+- eigen
+- actionlib
+- moveit_ros_move_group
+- tf2_eigen
+- rosconsole
+- catkin
+- pluginlib
+- moveit_core
+- dynamic_reconfigure
+description: Components of MoveIt used for manipulation
+license: BSD
+maintainers: "Michael G\xF6rner <me@v4hn.de>, Michael Ferguson <mferguson@fetchrobotics.com>,\
+  \ MoveIt Release Team <moveit_releasers@googlegroups.com>"
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

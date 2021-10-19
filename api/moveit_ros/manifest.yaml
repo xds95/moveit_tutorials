@@ -1,0 +1,25 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>, Sachin Chitta <robot.moveit@gmail.com>, Acorn
+  Pooley <acorn.pooley@sri.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_ros_benchmarks
+- moveit_ros_robot_interaction
+- moveit_ros_planning_interface
+- catkin
+- moveit_ros_move_group
+- moveit_ros_warehouse
+- moveit_ros_perception
+- moveit_ros_visualization
+- moveit_ros_planning
+- moveit_ros_manipulation
+description: Components of MoveIt that use ROS
+license: BSD
+maintainers: "Michael Ferguson <mferguson@fetchrobotics.com>, Michael G\xF6rner <me@v4hn.de>,\
+  \ Dave Coleman <dave@picknik.ai>, MoveIt Release Team <moveit_releasers@googlegroups.com>"
+msgs: []
+package_type: metapackage
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

@@ -1,0 +1,34 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>, Sachin Chitta <robot.moveit@gmail.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- rostest
+- roscpp
+- tf2_eigen
+- moveit_core
+- urdf
+- moveit_msgs
+- actionlib
+- tf2_geometry_msgs
+- tf2_msgs
+- tf2_ros
+- moveit_ros_occupancy_map_monitor
+- srdfdom
+- dynamic_reconfigure
+- eigen
+- rosconsole
+- pluginlib
+- message_filters
+- moveit_resources_panda_moveit_config
+- tf2
+- catkin
+description: Planning components of MoveIt that use ROS
+license: BSD
+maintainers: "Michael Ferguson <mferguson@fetchrobotics.com>, Michael G\xF6rner <me@v4hn.de>,\
+  \ MoveIt Release Team <moveit_releasers@googlegroups.com>"
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

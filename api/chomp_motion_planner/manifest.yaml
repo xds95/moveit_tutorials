@@ -1,0 +1,17 @@
+actions: []
+authors: Gil Jones <gjones@willowgarage.com>, Mrinal Kalakrishnan <mail@mrinal.net>
+brief: ''
+bugtracker: ''
+depends:
+- catkin
+- moveit_core
+- roscpp
+description: chomp_motion_planner
+license: BSD
+maintainers: Chittaranjan Srinivas Swaminathan <chitt@live.in>, MoveIt Release Team
+  <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: http://ros.org/wiki/chomp_motion_planner

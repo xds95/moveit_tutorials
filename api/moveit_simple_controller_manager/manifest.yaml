@@ -1,0 +1,20 @@
+actions: []
+authors: Michael Ferguson <mferguson@fetchrobotics.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_core
+- roscpp
+- catkin
+- control_msgs
+- actionlib
+- pluginlib
+description: A generic, simple controller manager plugin for MoveIt.
+license: BSD
+maintainers: "Michael Ferguson <mferguson@fetchrobotics.com>, Michael G\xF6rner <me@v4hn.de>,\
+  \ MoveIt Release Team <moveit_releasers@googlegroups.com>"
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

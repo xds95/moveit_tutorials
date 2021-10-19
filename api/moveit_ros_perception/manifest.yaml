@@ -1,0 +1,39 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>, Jon Binney <jon.binney@gmail.com>, Suat Gedikli
+  <gedikli@willowgarage.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- libomp-dev
+- moveit_msgs
+- moveit_ros_occupancy_map_monitor
+- glut
+- rosconsole
+- pluginlib
+- tf2
+- catkin
+- nodelet
+- tf2_geometry_msgs
+- urdf
+- libglew-dev
+- tf2_ros
+- rosunit
+- sensor_msgs
+- opengl
+- moveit_core
+- cv_bridge
+- message_filters
+- image_transport
+- tf2_eigen
+- moveit_ros_planning
+- eigen
+- object_recognition_msgs
+- roscpp
+description: Components of MoveIt connecting to perception
+license: BSD
+maintainers: Michael Ferguson <mferguson@fetchrobotics.com>, MoveIt Release Team <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

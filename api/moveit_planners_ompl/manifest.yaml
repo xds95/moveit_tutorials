@@ -1,0 +1,28 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_core
+- rosunit
+- moveit_resources_panda_description
+- rostest
+- roscpp
+- ompl
+- dynamic_reconfigure
+- tf2
+- pluginlib
+- rosconsole
+- moveit_resources_fanuc_description
+- tf2_eigen
+- moveit_ros_planning
+- moveit_resources_pr2_description
+- catkin
+description: MoveIt interface to OMPL
+license: BSD
+maintainers: Dave Coleman <dave@picknik.ai>, MoveIt Release Team <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

@@ -1,0 +1,24 @@
+actions: []
+authors: Isaac I. Y. Saito <gm130s@gmail.com>
+brief: ''
+bugtracker: ''
+depends:
+- moveit_core
+- moveit_ros_planning_interface
+- moveit_ros_manipulation
+- moveit_plugins
+- catkin
+- moveit_ros_perception
+- moveit_ros_warehouse
+- moveit_ros_planning
+- moveit_planners
+- moveit_ros_move_group
+description: moveit_runtime meta package contains MoveIt packages that are essential
+  for its runtime (e.g. running MoveIt on robots).
+license: BSD
+maintainers: Isaac I. Y. Saito <gm130s@gmail.com>
+msgs: []
+package_type: metapackage
+repo_url: ''
+srvs: []
+url: http://moveit.ros.org

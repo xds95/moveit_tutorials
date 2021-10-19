@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>moveit.core.robot_model &mdash; moveit.core  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="moveit.core.robot_model.JointModelGroup" href="moveit.core.robot_model.JointModelGroup.html" />
+    <link rel="prev" title="moveit.core.planning_scene.PlanningScene" href="moveit.core.planning_scene.PlanningScene.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> moveit.core
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home page</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="moveit.core.html">moveit.core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="moveit.core.load_robot_model.html">moveit.core.load_robot_model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit.core.collision_detection.html">moveit.core.collision_detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit.core.kinematic_constraints.html">moveit.core.kinematic_constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit.core.planning_scene.html">moveit.core.planning_scene</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">moveit.core.robot_model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="moveit.core.robot_model.JointModelGroup.html">moveit.core.robot_model.JointModelGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="moveit.core.robot_model.RobotModel.html">moveit.core.robot_model.RobotModel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="moveit.core.robot_state.html">moveit.core.robot_state</a></li>
+<li class="toctree-l2"><a class="reference internal" href="moveit.core.transforms.html">moveit.core.transforms</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">moveit.core</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../api.html">&lt;no title&gt;</a> &raquo;</li>
+        
+          <li><a href="moveit.core.html">moveit.core</a> &raquo;</li>
+        
+      <li>moveit.core.robot_model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/_autosummary/moveit.core.robot_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-moveit.core.robot_model">
+<span id="moveit-core-robot-model"></span><h1>moveit.core.robot_model<a class="headerlink" href="#module-moveit.core.robot_model" title="Permalink to this headline">¶</a></h1>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="moveit.core.robot_model.JointModelGroup.html#moveit.core.robot_model.JointModelGroup" title="moveit.core.robot_model.JointModelGroup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JointModelGroup</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="moveit.core.robot_model.RobotModel.html#moveit.core.robot_model.RobotModel" title="moveit.core.robot_model.RobotModel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RobotModel</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="moveit.core.robot_model.JointModelGroup.html" class="btn btn-neutral float-right" title="moveit.core.robot_model.JointModelGroup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="moveit.core.planning_scene.PlanningScene.html" class="btn btn-neutral float-left" title="moveit.core.planning_scene.PlanningScene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, MoveIt maintainer team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

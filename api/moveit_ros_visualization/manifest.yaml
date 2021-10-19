@@ -1,0 +1,36 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>, Dave Coleman <dave@picknik.ai>, Sachin Chitta
+  <robot.moveit@gmail.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_ros_warehouse
+- pkg-config
+- moveit_ros_robot_interaction
+- interactive_markers
+- libogre-dev
+- rostest
+- rviz
+- object_recognition_msgs
+- rospy
+- catkin
+- moveit_ros_perception
+- roscpp
+- pluginlib
+- eigen
+- tf2_eigen
+- libqt5-opengl-dev
+- moveit_ros_planning_interface
+- qtbase5-dev
+- class_loader
+- geometric_shapes
+- rosconsole
+description: Components of MoveIt that offer visualization
+license: BSD
+maintainers: Jon Binney <jon.binney@gmail.com>, Michael Ferguson <mferguson@fetchrobotics.com>,
+  MoveIt Release Team <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

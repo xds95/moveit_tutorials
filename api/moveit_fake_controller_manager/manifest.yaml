@@ -1,0 +1,18 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- moveit_core
+- moveit_ros_planning
+- roscpp
+- pluginlib
+- catkin
+description: A fake controller manager plugin for MoveIt.
+license: BSD
+maintainers: "Michael G\xF6rner <me@v4hn.de>, MoveIt Release Team <moveit_releasers@googlegroups.com>"
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

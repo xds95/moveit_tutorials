@@ -1,0 +1,20 @@
+actions: []
+authors: Ioan Sucan <isucan@google.com>
+brief: ''
+bugtracker: https://github.com/ros-planning/moveit/issues
+depends:
+- rosconsole
+- warehouse_ros
+- tf2_eigen
+- roscpp
+- moveit_ros_planning
+- catkin
+- tf2_ros
+description: Components of MoveIt connecting to MongoDB
+license: BSD
+maintainers: Michael Ferguson <mferguson@fetchrobotics.com>, MoveIt Release Team <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: https://github.com/ros-planning/moveit
+srvs: []
+url: http://moveit.ros.org

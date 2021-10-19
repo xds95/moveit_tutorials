@@ -1,0 +1,18 @@
+actions: []
+authors: Raghavender Sahdev <raghavendersahdev@gmail.com>
+brief: ''
+bugtracker: ''
+depends:
+- catkin
+- chomp_motion_planner
+- moveit_core
+- pluginlib
+description: MoveIt planning request adapter utilizing chomp for solution optimization
+license: BSD
+maintainers: Raghavender Sahdev <raghavendersahdev@gmail.com>, MoveIt Release Team
+  <moveit_releasers@googlegroups.com>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: ''

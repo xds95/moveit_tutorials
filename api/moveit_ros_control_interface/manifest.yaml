@@ -1,0 +1,21 @@
+actions: []
+authors: "Mathias L\xFCdtke <mathias.luedtke@ipa.fraunhofer.de>"
+brief: ''
+bugtracker: ''
+depends:
+- controller_manager_msgs
+- catkin
+- actionlib
+- moveit_simple_controller_manager
+- pluginlib
+- moveit_core
+- trajectory_msgs
+description: ros_control controller manager interface for MoveIt
+license: BSD
+maintainers: "Mathias L\xFCdtke <mathias.luedtke@ipa.fraunhofer.de>, MoveIt Release\
+  \ Team <moveit_releasers@googlegroups.com>"
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: ''

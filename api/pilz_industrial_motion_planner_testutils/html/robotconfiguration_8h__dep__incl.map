@@ -1,0 +1,17 @@
+<map id="robotconfiguration.h" name="robotconfiguration.h">
+<area shape="rect" id="node1" title=" " alt="" coords="517,5,670,32"/>
+<area shape="rect" id="node2" href="$cartesianconfiguration_8h.html" title=" " alt="" coords="251,155,429,181"/>
+<area shape="rect" id="node12" href="$jointconfiguration_8h.html" title=" " alt="" coords="519,80,667,107"/>
+<area shape="rect" id="node15" href="$robotconfiguration_8cpp.html" title=" " alt="" coords="692,80,860,107"/>
+<area shape="rect" id="node3" href="$cartesianpathconstraintsbuilder_8h.html" title=" " alt="" coords="326,229,565,256"/>
+<area shape="rect" id="node4" href="$circ__auxiliary__types_8h.html" title=" " alt="" coords="363,304,527,331"/>
+<area shape="rect" id="node5" href="$command__types__typedef_8h.html" title=" " alt="" coords="367,379,566,405"/>
+<area shape="rect" id="node7" href="$testdata__loader_8h.html" title=" " alt="" coords="541,528,675,555"/>
+<area shape="rect" id="node11" href="$cartesianconfiguration_8cpp.html" title=" " alt="" coords="5,229,200,256"/>
+<area shape="rect" id="node6" href="$sequence_8h.html" title=" " alt="" coords="419,453,515,480"/>
+<area shape="rect" id="node10" href="$sequence_8cpp.html" title=" " alt="" coords="406,528,517,555"/>
+<area shape="rect" id="node8" href="$xml__testdata__loader_8h.html" title=" " alt="" coords="525,603,691,629"/>
+<area shape="rect" id="node9" href="$xml__testdata__loader_8cpp.html" title=" " alt="" coords="517,677,699,704"/>
+<area shape="rect" id="node13" href="$gripper_8h.html" title=" " alt="" coords="691,304,770,331"/>
+<area shape="rect" id="node14" href="$jointconfiguration_8cpp.html" title=" " alt="" coords="453,155,616,181"/>
+</map>

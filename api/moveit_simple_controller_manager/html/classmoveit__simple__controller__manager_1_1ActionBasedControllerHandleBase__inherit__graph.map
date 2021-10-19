@@ -1,0 +1,9 @@
+<map id="moveit_simple_controller_manager::ActionBasedControllerHandleBase" name="moveit_simple_controller_manager::ActionBasedControllerHandleBase">
+<area shape="rect" id="node1" title=" " alt="" coords="256,107,496,163"/>
+<area shape="rect" id="node3" href="$classmoveit__simple__controller__manager_1_1ActionBasedControllerHandle.html" title=" " alt="" coords="544,5,857,76"/>
+<area shape="rect" id="node5" href="$classmoveit__simple__controller__manager_1_1ActionBasedControllerHandle.html" title=" " alt="" coords="554,100,847,171"/>
+<area shape="rect" id="node7" href="$classmoveit__simple__controller__manager_1_1ActionBasedControllerHandle.html" title=" " alt="" coords="581,195,821,251"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,115,208,156"/>
+<area shape="rect" id="node4" href="$classmoveit__simple__controller__manager_1_1FollowJointTrajectoryControllerHandle.html" title=" " alt="" coords="917,13,1147,69"/>
+<area shape="rect" id="node6" href="$classmoveit__simple__controller__manager_1_1GripperControllerHandle.html" title=" " alt="" coords="905,115,1159,156"/>
+</map>
