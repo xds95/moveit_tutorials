@@ -4,9 +4,9 @@ brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
 - moveit_commander
+- moveit_msgs
 - moveit_core
 - catkin
-- moveit_msgs
 - tf2_eigen
 description: Helper scripts and functionality to test industrial motion generation
 license: BSD

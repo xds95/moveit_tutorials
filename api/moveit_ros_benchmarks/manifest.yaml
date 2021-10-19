@@ -3,12 +3,12 @@ authors: Ryan Luna <rluna@rice.edu>
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
-- moveit_ros_planning
-- pluginlib
 - catkin
 - roscpp
-- tf2_eigen
+- moveit_ros_planning
 - moveit_ros_warehouse
+- tf2_eigen
+- pluginlib
 description: Enhanced tools for benchmarks in MoveIt
 license: BSD
 maintainers: Dave Coleman <dave@picknik.ai>, MoveIt Release Team <moveit_releasers@googlegroups.com>

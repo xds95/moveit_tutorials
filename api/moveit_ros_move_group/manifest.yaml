@@ -3,19 +3,19 @@ authors: Ioan Sucan <isucan@google.com>, Sachin Chitta <robot.moveit@gmail.com>
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
-- moveit_core
-- moveit_ros_planning
-- moveit_kinematics
-- rostest
-- tf2_ros
-- pluginlib
-- tf2
-- std_srvs
-- roscpp
 - tf2_geometry_msgs
+- tf2_ros
 - moveit_resources_fanuc_moveit_config
-- actionlib
+- std_srvs
+- rostest
+- tf2
+- moveit_core
+- moveit_kinematics
+- pluginlib
 - catkin
+- moveit_ros_planning
+- actionlib
+- roscpp
 description: The move_group node for MoveIt
 license: BSD
 maintainers: "Michael Ferguson <mferguson@fetchrobotics.com>, Michael G\xF6rner <me@v4hn.de>,\

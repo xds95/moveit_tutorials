@@ -3,22 +3,22 @@ authors: Ioan Sucan <isucan@google.com>
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
-- catkin
 - geometry_msgs
-- rostest
-- python3-catkin-pkg
-- moveit_ros_planning_interface
-- python3-pyassimp
-- tf
-- shape_msgs
-- python-catkin-pkg
-- moveit_resources_fanuc_moveit_config
 - rospy
+- sensor_msgs
+- tf
+- rostest
+- python3-pyassimp
+- moveit_ros_planning_interface
 - python-pyassimp
 - moveit_msgs
-- python
-- sensor_msgs
+- catkin
+- shape_msgs
+- python-catkin-pkg
+- python3-catkin-pkg
 - python3
+- python
+- moveit_resources_fanuc_moveit_config
 description: Python interfaces to MoveIt
 license: BSD
 maintainers: "Michael G\xF6rner <me@v4hn.de>, Robert Haschke <rhaschke@techfak.uni-bielefeld.de>,\

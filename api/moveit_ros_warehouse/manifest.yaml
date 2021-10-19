@@ -4,12 +4,12 @@ brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
 - rosconsole
-- warehouse_ros
 - tf2_eigen
-- roscpp
 - moveit_ros_planning
-- catkin
+- warehouse_ros
+- roscpp
 - tf2_ros
+- catkin
 description: Components of MoveIt connecting to MongoDB
 license: BSD
 maintainers: Michael Ferguson <mferguson@fetchrobotics.com>, MoveIt Release Team <moveit_releasers@googlegroups.com>

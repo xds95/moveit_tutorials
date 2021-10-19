@@ -4,10 +4,10 @@ brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
 - moveit_core
-- moveit_ros_planning
-- roscpp
-- pluginlib
 - catkin
+- moveit_ros_planning
+- pluginlib
+- roscpp
 description: A fake controller manager plugin for MoveIt.
 license: BSD
 maintainers: "Michael G\xF6rner <me@v4hn.de>, MoveIt Release Team <moveit_releasers@googlegroups.com>"

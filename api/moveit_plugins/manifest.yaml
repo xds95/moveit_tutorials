@@ -3,10 +3,10 @@ authors: Michael Ferguson <mferguson@fetchrobotics.com>, Ioan Sucan <isucan@goog
 brief: ''
 bugtracker: ''
 depends:
+- moveit_fake_controller_manager
+- moveit_simple_controller_manager
 - moveit_ros_control_interface
 - catkin
-- moveit_simple_controller_manager
-- moveit_fake_controller_manager
 description: Metapackage for MoveIt plugins.
 license: BSD
 maintainers: "Michael G\xF6rner <me@v4hn.de>, MoveIt Release Team <moveit_releasers@googlegroups.com>"

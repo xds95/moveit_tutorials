@@ -3,9 +3,9 @@ authors: Gil Jones <gjones@willowgarage.com>, Mrinal Kalakrishnan <mail@mrinal.n
 brief: ''
 bugtracker: ''
 depends:
-- catkin
 - moveit_core
 - roscpp
+- catkin
 description: chomp_motion_planner
 license: BSD
 maintainers: Chittaranjan Srinivas Swaminathan <chitt@live.in>, MoveIt Release Team

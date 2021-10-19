@@ -3,12 +3,12 @@ authors: Gil Jones <gjones@willowgarage.com>
 brief: ''
 bugtracker: ''
 depends:
-- roscpp
 - pluginlib
-- moveit_ros_planning_interface
-- rostest
 - chomp_motion_planner
+- moveit_ros_planning_interface
 - catkin
+- roscpp
+- rostest
 - moveit_core
 description: The interface for using CHOMP within MoveIt
 license: BSD

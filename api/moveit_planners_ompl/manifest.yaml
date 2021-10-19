@@ -3,21 +3,21 @@ authors: Ioan Sucan <isucan@google.com>
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
-- moveit_core
-- rosunit
-- moveit_resources_panda_description
-- rostest
-- roscpp
-- ompl
-- dynamic_reconfigure
+- moveit_resources_pr2_description
 - tf2
+- moveit_resources_panda_description
+- moveit_core
+- catkin
+- rostest
+- moveit_ros_planning
+- ompl
+- roscpp
 - pluginlib
+- tf2_eigen
+- dynamic_reconfigure
+- rosunit
 - rosconsole
 - moveit_resources_fanuc_description
-- tf2_eigen
-- moveit_ros_planning
-- moveit_resources_pr2_description
-- catkin
 description: MoveIt interface to OMPL
 license: BSD
 maintainers: Dave Coleman <dave@picknik.ai>, MoveIt Release Team <moveit_releasers@googlegroups.com>

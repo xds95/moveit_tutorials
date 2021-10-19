@@ -4,22 +4,22 @@ authors: "Brian O'Neil, Andy Zelenak <andyz@utexas.edu>, Blake Anderson, Alexand
 brief: ''
 bugtracker: ''
 depends:
-- moveit_resources_panda_moveit_config
-- trajectory_msgs
-- tf2_eigen
-- std_srvs
 - rosparam_shortcuts
+- std_srvs
+- joy_teleop
+- control_toolbox
+- tf2_eigen
+- moveit_ros_planning_interface
 - moveit_msgs
-- sensor_msgs
-- std_msgs
-- geometry_msgs
+- trajectory_msgs
 - spacenav_node
 - rostest
-- catkin
-- control_toolbox
-- moveit_ros_planning_interface
+- sensor_msgs
+- geometry_msgs
 - control_msgs
-- joy_teleop
+- moveit_resources_panda_moveit_config
+- std_msgs
+- catkin
 description: Provides real-time manipulator Cartesian and joint servoing.
 license: BSD 3-Clause
 maintainers: Blake Anderson <blakeanderson@utexas.edu>, Andy Zelenak <andyz@utexas.edu>

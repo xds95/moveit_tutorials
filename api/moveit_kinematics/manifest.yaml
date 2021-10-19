@@ -4,27 +4,27 @@ authors: Dave Coleman <dave@picknik.ai>, Ioan Sucan <isucan@google.com>, Sachin 
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
+- liborocos-kdl-dev
+- python3-yaml
+- moveit_resources_fanuc_moveit_config
 - python3-lxml
 - pluginlib
-- python-yaml
-- moveit_ros_planning
-- moveit_resources_fanuc_description
-- orocos_kdl
-- rostest
-- roscpp
 - eigen
-- moveit_resources_panda_description
-- python3-yaml
-- moveit_core
-- moveit_resources_fanuc_moveit_config
-- xmlrpcpp
-- tf2_kdl
-- moveit_resources_panda_moveit_config
-- tf2
-- catkin
+- roscpp
+- rostest
 - python-lxml
+- tf2_kdl
+- python-yaml
 - liburdfdom-tools
-- liborocos-kdl-dev
+- moveit_core
+- moveit_resources_panda_moveit_config
+- moveit_ros_planning
+- tf2
+- moveit_resources_panda_description
+- catkin
+- moveit_resources_fanuc_description
+- xmlrpcpp
+- orocos_kdl
 description: Package for all inverse kinematics solvers in MoveIt
 license: BSD
 maintainers: Dave Coleman <dave@picknik.ai>, G.A. vd. Hoorn <g.a.vanderhoorn@tudelft.nl>,

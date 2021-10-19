@@ -3,30 +3,30 @@ authors: Ioan Sucan <isucan@google.com>
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
-- python-catkin-pkg
 - rosconsole
-- moveit_ros_move_group
-- geometry_msgs
-- tf2
-- moveit_msgs
-- python3
 - moveit_resources_panda_moveit_config
 - rospy
-- tf2_ros
-- tf2_eigen
-- python3-catkin-pkg
-- actionlib
-- moveit_ros_manipulation
-- roscpp
-- tf2_geometry_msgs
 - python
+- tf2
+- tf2_eigen
+- moveit_ros_manipulation
 - eigen
-- moveit_ros_warehouse
-- rostest
+- tf2_geometry_msgs
 - eigenpy
+- python3
 - moveit_ros_planning
+- moveit_ros_warehouse
 - catkin
+- tf2_ros
+- python3-catkin-pkg
+- rostest
+- geometry_msgs
+- moveit_ros_move_group
+- moveit_msgs
 - moveit_resources_fanuc_moveit_config
+- roscpp
+- actionlib
+- python-catkin-pkg
 description: Components of MoveIt that offer simpler interfaces to planning and execution
 license: BSD
 maintainers: "Michael Ferguson <mferguson@fetchrobotics.com>, Michael G\xF6rner <me@v4hn.de>,\

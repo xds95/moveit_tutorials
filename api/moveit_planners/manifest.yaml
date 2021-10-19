@@ -3,10 +3,10 @@ authors: Ioan Sucan <isucan@google.com>, Sachin Chitta <sachinc@willowgarage.com
 brief: ''
 bugtracker: https://github.com/ros-planning/moveit/issues
 depends:
-- moveit_planners_ompl
 - moveit_planners_chomp
-- chomp_motion_planner
+- moveit_planners_ompl
 - catkin
+- chomp_motion_planner
 description: Metapacakge that installs all available planners for MoveIt
 license: BSD
 maintainers: Dave Coleman <dave@picknik.ai>, MoveIt Release Team <moveit_releasers@googlegroups.com>
