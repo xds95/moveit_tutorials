@@ -1,8 +1,0 @@
-<map id="collision_detector_allocator_bullet.h" name="collision_detector_allocator_bullet.h">
-<area shape="rect" id="node1" title=" " alt="" coords="325,5,467,47"/>
-<area shape="rect" id="node2" href="$collision__detector__bullet__plugin__loader_8h.html" title=" " alt="" coords="13,95,185,136"/>
-<area shape="rect" id="node4" href="$collision__env__bullet_8cpp.html" title=" " alt="" coords="209,102,388,129"/>
-<area shape="rect" id="node5" href="$test__bullet__collision__detection__panda_8cpp.html" title=" " alt="" coords="413,95,577,136"/>
-<area shape="rect" id="node6" href="$test__bullet__collision__detection__pr2_8cpp.html" title=" " alt="" coords="601,95,753,136"/>
-<area shape="rect" id="node3" href="$collision__detector__bullet__plugin__loader_8cpp.html" title=" " alt="" coords="5,184,192,225"/>
-</map>

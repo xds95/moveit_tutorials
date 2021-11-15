@@ -1,9 +1,0 @@
-<map id="planning_pipeline.h" name="planning_pipeline.h">
-<area shape="rect" id="node1" title=" " alt="" coords="343,5,492,32"/>
-<area shape="rect" id="node2" href="$moveit__cpp_8h.html" title=" " alt="" coords="177,80,287,107"/>
-<area shape="rect" id="node4" href="$planning__component_8cpp.html" title=" " alt="" coords="255,229,441,256"/>
-<area shape="rect" id="node7" href="$planning__pipeline_8cpp.html" title=" " alt="" coords="455,80,619,107"/>
-<area shape="rect" id="node3" href="$planning__component_8h.html" title=" " alt="" coords="60,155,231,181"/>
-<area shape="rect" id="node5" href="$moveit__cpp__test_8cpp.html" title=" " alt="" coords="5,229,163,256"/>
-<area shape="rect" id="node6" href="$moveit__cpp_8cpp.html" title=" " alt="" coords="255,155,380,181"/>
-</map>

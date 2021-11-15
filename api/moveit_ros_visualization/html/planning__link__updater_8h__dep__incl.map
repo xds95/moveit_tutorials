@@ -1,7 +1,0 @@
-<map id="planning_link_updater.h" name="planning_link_updater.h">
-<area shape="rect" id="node1" title=" " alt="" coords="361,5,538,32"/>
-<area shape="rect" id="node2" href="$motion__planning__display_8cpp.html" title=" " alt="" coords="5,80,216,107"/>
-<area shape="rect" id="node3" href="$planning__link__updater_8cpp.html" title=" " alt="" coords="240,80,432,107"/>
-<area shape="rect" id="node4" href="$robot__state__visualization_8cpp.html" title=" " alt="" coords="456,80,669,107"/>
-<area shape="rect" id="node5" href="$trajectory__visualization_8cpp.html" title=" " alt="" coords="693,80,896,107"/>
-</map>

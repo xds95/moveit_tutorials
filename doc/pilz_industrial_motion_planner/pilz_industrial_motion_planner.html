@@ -76,7 +76,6 @@
         <option value="http://moveit2_tutorials.picknik.ai">Moveit 2 - Foxy</option>
         <option value='' selected>MoveIt 1 - Noetic</option>
         <option value="http://docs.ros.org/en/melodic/api/moveit_tutorials/html/index.html">MoveIt 1 - Melodic</option>
-        <option value="http://docs.ros.org/en/kinetic/api/moveit_tutorials/html/index.html">MoveIt 1 - Kinetic</option>
     </select>
     </div>
 </div><br>
@@ -858,8 +857,10 @@
   <div class="section" id="pilz-industrial-motion-planner">
 <h1>Pilz Industrial Motion Planner<a class="headerlink" href="#pilz-industrial-motion-planner" title="Permalink to this headline">¶</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">pilz_industrial_motion_planner</span></code> provides a trajectory generator to plan standard robot
-motions like PTP, LIN, CIRC with the interface of a MoveIt PlannerManager
-plugin.</p>
+motions like PTP, LIN, CIRC with the interface of a MoveIt PlannerManager plugin.</p>
+<p>Note, that these planners are motion generators only, i.e. they don’t consider obstacle avoidance.
+The intended trajectory (LINear or CIRCular in Cartesian space, or PTP) is computed and only finally tested
+for validity regarding collisions. If a collision occurs, the whole trajectory is rejected.</p>
 <div class="section" id="user-interface-movegroup">
 <h2>User Interface MoveGroup<a class="headerlink" href="#user-interface-movegroup" title="Permalink to this headline">¶</a></h2>
 <p>This package implements the <code class="docutils literal notranslate"><span class="pre">planning_interface::PlannerManager</span></code>

@@ -1,4 +1,0 @@
-<map id="lma_kinematics_plugin::LMAKinematicsPlugin" name="lma_kinematics_plugin::LMAKinematicsPlugin">
-<area shape="rect" id="node1" title="Implementation of kinematics using Levenberg&#45;Marquardt (LMA) solver from KDL. This version supports a..." alt="" coords="5,80,179,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="29,5,155,32"/>
-</map>

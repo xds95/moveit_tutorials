@@ -1,6 +1,0 @@
-<map id="test" name="test">
-<area shape="rect" id="node1" href="dir_0a37f863137f0e4b1948b2878f9a6cf9.html" title="test" alt="" coords="29,52,101,100"/>
-<area shape="rect" id="node2" href="dir_fcb2002c5de3619de3bd32182883e0da.html" title="include" alt="" coords="29,148,101,196"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000034_000031.html" title="2" alt="" coords="69,122,78,137"/>
-<area shape="rect" id="clust1" href="dir_e8a41e93868d71a0576ea73f1248fd63.html" title="moveit_cpp" alt="" coords="16,16,115,111"/>
-</map>

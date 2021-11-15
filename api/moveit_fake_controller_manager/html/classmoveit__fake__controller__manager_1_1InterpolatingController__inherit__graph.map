@@ -1,6 +1,0 @@
-<map id="moveit_fake_controller_manager::InterpolatingController" name="moveit_fake_controller_manager::InterpolatingController">
-<area shape="rect" id="node1" title=" " alt="" coords="5,273,248,315"/>
-<area shape="rect" id="node2" href="$classmoveit__fake__controller__manager_1_1ThreadedController.html" title=" " alt="" coords="17,184,237,225"/>
-<area shape="rect" id="node3" href="$classmoveit__fake__controller__manager_1_1BaseFakeController.html" title=" " alt="" coords="17,95,237,136"/>
-<area shape="rect" id="node4" title=" " alt="" coords="25,5,228,47"/>
-</map>

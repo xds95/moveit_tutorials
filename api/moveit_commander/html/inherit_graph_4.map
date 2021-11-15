@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" title=" " alt="" coords="5,115,85,142"/>
-<area shape="rect" id="node2" href="$classpython__moveit__commander_1_1PythonMoveitCommanderTest.html" title=" " alt="" coords="177,5,395,47"/>
-<area shape="rect" id="node3" href="$classpython__moveit__commander__ns_1_1PythonMoveitCommanderNsTest.html" title=" " alt="" coords="155,71,417,112"/>
-<area shape="rect" id="node4" href="$classpython__moveit__commander__ros__namespace_1_1PythonMoveitCommanderRosNamespaceTest.html" title=" " alt="" coords="133,137,439,193"/>
-<area shape="rect" id="node5" href="$classpython__time__parameterization_1_1PythonTimeParameterizationTest.html" title=" " alt="" coords="167,217,405,259"/>
-</map>
