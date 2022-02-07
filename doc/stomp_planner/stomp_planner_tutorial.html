@@ -864,7 +864,7 @@
 <li>Handles cost functions which do not need to be differentiable.</li>
 <li>Uses distance field and spherical approximations to quickly compute distance queries and collision costs.</li>
 </ul>
-<p>Integration into Kinetic and Melodic version of MoveIt is work in progress. <a class="reference external" href="https://www.sachinchitta.org/uploads/2/2/5/7/22571428/kalakrishnan_icra_2011.pdf">More info</a></p>
+<p>Integration into Kinetic and Melodic version of MoveIt is work in progress. <a class="reference external" href="http://www-clmc.usc.edu/publications/K/kalakrishnan-ICRA2011.pdf">More info</a></p>
 <div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>If you haven’t already done so, make sure you’ve completed the steps in <a class="reference external" href="../getting_started/getting_started.html">Getting Started</a>.</p>
@@ -874,20 +874,21 @@
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
-<li>You must have the latest version of MoveIt for your ROS distribution installed. As STOMP is distributed independently you can safely install the packaged version of MoveIt however. STOMP then needs to be build from source, we will go through the steps for doing this below.</li>
-<li>To use STOMP with your robot you must need to have a MoveIt configuration package for your robot ready. For example, if you have a Panda robot, it’s probably called <code class="docutils literal notranslate"><span class="pre">panda_moveit_config</span></code>. This is typically built using the <a class="reference external" href="../setup_assistant/setup_assistant_tutorial.html">MoveIt Setup Assistant</a>.</li>
+<li>You must have the latest version of MoveIt for your ROS distribution installed. As STOMP is distributed independently you can safely install the packaged version of MoveIt. However, STOMP needs to be built from source. We will go through the steps for doing this below.</li>
+<li>To use STOMP with your robot you must have a MoveIt configuration package for your robot ready. For example, if you have a Panda robot, it’s probably called <code class="docutils literal notranslate"><span class="pre">panda_moveit_config</span></code>. This is typically built using the <a class="reference external" href="../setup_assistant/setup_assistant_tutorial.html">MoveIt Setup Assistant</a>.</li>
 <li>You must also have built <a class="reference external" href="https://github.com/ros-industrial/stomp_ros">ros-industrial/stomp_ros package</a> and  <a class="reference external" href="https://github.com/ros-industrial/stomp">ros-industrial/stomp package</a> from source. This needs to be built from source since stomp_ros is not released as a debian yet.</li>
 </ol>
 </div></blockquote>
 </div>
 <div class="section" id="installing-stomp-from-source">
 <h2>Installing STOMP from Source<a class="headerlink" href="#installing-stomp-from-source" title="Permalink to this headline">¶</a></h2>
-<p>As you add and remove packages from your workspace you will need to clean your workspace and re-run the command to install new missing dependencies. Clean your workspace to remove references to the system wide installation of MoveIt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ws_moveit</span><span class="o">/</span><span class="n">src</span>
-<span class="n">source</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ros</span><span class="o">/</span><span class="n">melodic</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
-<span class="n">wstool</span> <span class="n">init</span>
-<span class="n">wstool</span> <span class="nb">set</span> <span class="n">stomp</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">industrial</span><span class="o">/</span><span class="n">stomp_ros</span><span class="o">.</span><span class="n">git</span> <span class="o">--</span><span class="n">git</span>
-<span class="n">wstool</span> <span class="n">update</span>
+<p>As you add and remove packages from your workspace you will need to clean your workspace with <code class="docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">clean</span></code> and re-run the command to install new missing dependencies. Clean your workspace to remove references to the system wide installation of MoveIt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ws_moveit</span>
+<span class="n">source</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ros</span><span class="o">/</span><span class="n">noetic</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+<span class="n">wstool</span> <span class="nb">set</span> <span class="o">-</span><span class="n">t</span> <span class="n">src</span> <span class="n">stomp_ros</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">industrial</span><span class="o">/</span><span class="n">stomp_ros</span><span class="o">.</span><span class="n">git</span> <span class="o">--</span><span class="n">git</span>
+<span class="n">wstool</span> <span class="n">update</span> <span class="o">-</span><span class="n">t</span> <span class="n">src</span> <span class="n">stomp_ros</span>
+<span class="n">wstool</span> <span class="n">merge</span> <span class="o">-</span><span class="n">t</span> <span class="n">src</span> <span class="n">src</span><span class="o">/</span><span class="n">stomp_ros</span><span class="o">/</span><span class="n">dependencies</span><span class="o">.</span><span class="n">rosinstall</span>
+<span class="n">wstool</span> <span class="n">update</span> <span class="o">-</span><span class="n">t</span> <span class="n">src</span> <span class="n">stomp</span> <span class="n">ros_industrial_cmake_boilerplate</span>
 <span class="n">catkin</span> <span class="n">build</span>
 </pre></div>
 </div>
