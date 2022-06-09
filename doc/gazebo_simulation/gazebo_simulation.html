@@ -880,12 +880,12 @@ the procedure outlined in there will be repeated (with improvements) in here as 
 </ol>
 <div class="section" id="fix-the-robot-to-the-world-coordinate-system">
 <h3>1. Fix the robot to the world coordinate system<a class="headerlink" href="#fix-the-robot-to-the-world-coordinate-system" title="Permalink to this headline">¶</a></h3>
-<p>Open the <code class="code docutils literal notranslate"><span class="pre">franka_description/robots/panda_arm_hand.urdf.xacro</span></code> file and change the line 5 with:</p>
+<p>Open the <code class="code docutils literal notranslate"><span class="pre">franka_description/robots/panda_arm.urdf.xacro</span></code> file and change the line 5 with:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;xacro:panda_arm</span> <span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span> <span class="na">rpy=</span><span class="s">&quot;0 0 0&quot;</span> <span class="na">connected_to=</span><span class="s">&quot;world&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>It alone doesn’t fix the problem, since now we need to provide a link with name <code class="code docutils literal notranslate"><span class="pre">world</span></code>. Add the following line to
-<code class="code docutils literal notranslate"><span class="pre">franka_description/robots/panda_arm_hand.urdf.xacro</span></code>:</p>
+<code class="code docutils literal notranslate"><span class="pre">franka_description/robots/panda_arm.urdf.xacro</span></code>:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span> <span class="na">name=</span><span class="s">&quot;world&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
@@ -1125,7 +1125,7 @@ controller_list:
 <h3>8. Change the way <code class="code docutils literal notranslate"><span class="pre">robot_description</span></code> is loaded to Parameter Server.<a class="headerlink" href="#change-the-way-robot-description-is-loaded-to-parameter-server" title="Permalink to this headline">¶</a></h3>
 <p>Open auto-generated <code class="code docutils literal notranslate"><span class="pre">gazebo.launch</span></code> in the <code class="code docutils literal notranslate"><span class="pre">panda_moveit_config</span></code> package. Find the line starting
 with <code class="code docutils literal notranslate"><span class="pre">&lt;param</span> <span class="pre">name=&quot;robot_description&quot;</span> <span class="pre">textfile=&quot;$(arg</span> <span class="pre">urdf_path)&quot;</span> <span class="pre">/&gt;</span></code> and replace it with:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;robot_description&quot;</span> <span class="na">command=</span><span class="s">&quot;$(find xacro)/xacro &#39;$(find franka_description)/robots/panda_arm_hand.urdf.xacro&#39;&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;param</span> <span class="na">name=</span><span class="s">&quot;robot_description&quot;</span> <span class="na">command=</span><span class="s">&quot;$(find xacro)/xacro &#39;$(find franka_description)/robots/panda_arm.urdf.xacro&#39;&quot;</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>With this adjustment we are using <code class="code docutils literal notranslate"><span class="pre">xacro</span></code> executable that compiles <code class="code docutils literal notranslate"><span class="pre">xacro</span></code> files into URDF files.</p>
