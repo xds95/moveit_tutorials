@@ -904,14 +904,15 @@ as usual.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">moveit_msgs</span><span class="o">::</span><span class="n">CollisionObject</span> <span class="n">box</span><span class="p">;</span>
 <span class="n">box</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="s">&quot;box&quot;</span><span class="p">;</span>
 <span class="n">box</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">&quot;panda_hand&quot;</span><span class="p">;</span>
+<span class="n">box</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z_offset_box</span><span class="p">;</span>
+<span class="n">box</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span><span class="p">.</span><span class="n">w</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>  <span class="c1">// Neutral orientation</span>
+
 <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">box</span><span class="p">.</span><span class="n">primitive_poses</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">type</span> <span class="o">=</span> <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">BOX</span><span class="p">;</span>
 <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">dimensions</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span>
 <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span>
 <span class="n">box</span><span class="p">.</span><span class="n">primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">dimensions</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">;</span>
-<span class="n">box</span><span class="p">.</span><span class="n">primitive_poses</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">z_offset_box</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Then, we define the subframes of the CollisionObject. The subframes are defined in the <code class="docutils literal notranslate"><span class="pre">frame_id</span></code> coordinate
@@ -920,15 +921,14 @@ In this tutorial, we set the orientation of the subframes so that the z-axis of 
 points away from the object.
 This is not strictly necessary, but it is helpful to follow a convention, and it avoids confusion when
 setting the orientation of the target pose later on.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">box</span><span class="p">.</span><span class="n">subframe_names</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<span class="n">box</span><span class="p">.</span><span class="n">subframe_poses</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">box</span><span class="p">.</span><span class="n">subframe_names</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">box</span><span class="p">.</span><span class="n">subframe_poses</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 
 <span class="n">box</span><span class="p">.</span><span class="n">subframe_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;bottom&quot;</span><span class="p">;</span>
 <span class="n">box</span><span class="p">.</span><span class="n">subframe_poses</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mf">.05</span><span class="p">;</span>
-<span class="n">box</span><span class="p">.</span><span class="n">subframe_poses</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="n">z_offset_box</span><span class="p">;</span>
 
 <span class="n">tf2</span><span class="o">::</span><span class="n">Quaternion</span> <span class="n">orientation</span><span class="p">;</span>
-<span class="n">orientation</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="n">tau</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// A quarter turn about the x-axis</span>
+<span class="n">orientation</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="n">tau</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// A quarter turn about the x-axis</span>
 <span class="n">box</span><span class="p">.</span><span class="n">subframe_poses</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">tf2</span><span class="o">::</span><span class="n">toMsg</span><span class="p">(</span><span class="n">orientation</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -943,8 +943,8 @@ setting the orientation of the target pose later on.</p>
 <div class="section" id="creating-the-planning-request">
 <h3>Creating the planning request<a class="headerlink" href="#creating-the-planning-request" title="Permalink to this headline">¶</a></h3>
 <p>In this tutorial, we use a small helper function to create our planning requests and move the robot.</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">moveToCartPose</span><span class="p">(</span><span class="k">const</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">PoseStamped</span><span class="o">&amp;</span> <span class="n">pose</span><span class="p">,</span> <span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveGroupInterface</span><span class="o">&amp;</span> <span class="n">group</span><span class="p">,</span>
-                    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">end_effector_link</span><span class="p">)</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span> <span class="nf">moveToCartesianPose</span><span class="p">(</span><span class="k">const</span> <span class="n">geometry_msgs</span><span class="o">::</span><span class="n">PoseStamped</span><span class="o">&amp;</span> <span class="n">pose</span><span class="p">,</span> <span class="n">moveit</span><span class="o">::</span><span class="n">planning_interface</span><span class="o">::</span><span class="n">MoveGroupInterface</span><span class="o">&amp;</span> <span class="n">group</span><span class="p">,</span>
+                         <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">end_effector_link</span><span class="p">)</span>
 <span class="p">{</span>
 </pre></div>
 </div>
@@ -1003,11 +1003,10 @@ Or try commands 7 and 8 to move different frames to the same position in space.<
 <span class="p">{</span>
   <span class="n">ROS_INFO_STREAM</span><span class="p">(</span><span class="s">&quot;Moving to top of box with cylinder tip&quot;</span><span class="p">);</span>
   <span class="n">target_pose</span><span class="p">.</span><span class="n">header</span><span class="p">.</span><span class="n">frame_id</span> <span class="o">=</span> <span class="s">&quot;box/top&quot;</span><span class="p">;</span>
-  <span class="n">target_orientation</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="n">tau</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tau</span> <span class="o">/</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="n">target_orientation</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="n">tau</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tau</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">);</span>
   <span class="n">target_pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">tf2</span><span class="o">::</span><span class="n">toMsg</span><span class="p">(</span><span class="n">target_orientation</span><span class="p">);</span>
   <span class="n">target_pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
-  <span class="n">showFrames</span><span class="p">(</span><span class="n">target_pose</span><span class="p">,</span> <span class="s">&quot;cylinder/tip&quot;</span><span class="p">);</span>
-  <span class="n">moveToCartPose</span><span class="p">(</span><span class="n">target_pose</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="s">&quot;cylinder/tip&quot;</span><span class="p">);</span>
+  <span class="n">moveToCartesianPose</span><span class="p">(</span><span class="n">target_pose</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="s">&quot;cylinder/tip&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -1019,14 +1018,13 @@ Or try commands 7 and 8 to move different frames to the same position in space.<
 </pre></div>
 </div>
 <p>The orientation is determined by RPY angles to align the cylinder and box subframes:</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">target_orientation</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tau</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">tau</span> <span class="o">/</span> <span class="mi">4</span><span class="p">);</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">target_orientation</span><span class="p">.</span><span class="n">setRPY</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tau</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">tau</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">);</span>
 <span class="n">target_pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">orientation</span> <span class="o">=</span> <span class="n">tf2</span><span class="o">::</span><span class="n">toMsg</span><span class="p">(</span><span class="n">target_orientation</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To keep some distance to the box, we use a small offset:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">target_pose</span><span class="p">.</span><span class="n">pose</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">;</span>
-<span class="n">showFrames</span><span class="p">(</span><span class="n">target_pose</span><span class="p">,</span> <span class="s">&quot;cylinder/tip&quot;</span><span class="p">);</span>
-<span class="n">moveToCartPose</span><span class="p">(</span><span class="n">target_pose</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="s">&quot;cylinder/tip&quot;</span><span class="p">);</span>
+<span class="n">moveToCartesianPose</span><span class="p">(</span><span class="n">target_pose</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="s">&quot;cylinder/tip&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
