@@ -1109,13 +1109,16 @@ first waypoint in the <a class="reference external" href="http://docs.ros.org/no
 </div>
 <div class="section" id="ensuring-collision-updates-are-received">
 <h3>Ensuring Collision Updates Are Received<a class="headerlink" href="#ensuring-collision-updates-are-received" title="Permalink to this headline">¶</a></h3>
-<p>If the Python node dies before publishing a collision object update message, the message
+<p>If the Python node was just created (<a class="reference external" href="https://github.com/ros/ros_comm/issues/176">https://github.com/ros/ros_comm/issues/176</a>),
+or dies before actually publishing the scene update message, the message
 could get lost and the box will not appear. To ensure that the updates are
 made, we wait until we see the changes reflected in the
 <code class="docutils literal notranslate"><span class="pre">get_attached_objects()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_known_object_names()</span></code> lists.
 For the purpose of this tutorial, we call this function after adding,
 removing, attaching or detaching an object in the planning scene. We then wait
-until the updates have been made or <code class="docutils literal notranslate"><span class="pre">timeout</span></code> seconds have passed</p>
+until the updates have been made or <code class="docutils literal notranslate"><span class="pre">timeout</span></code> seconds have passed.
+To avoid waiting for scene updates like this at all, initialize the
+planning scene interface with  <code class="docutils literal notranslate"><span class="pre">synchronous</span> <span class="pre">=</span> <span class="pre">True</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
 <span class="n">seconds</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_time</span><span class="p">()</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">seconds</span> <span class="o">-</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">timeout</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
