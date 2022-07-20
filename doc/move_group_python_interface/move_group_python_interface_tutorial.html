@@ -1028,11 +1028,12 @@ end-effector:</p>
 </pre></div>
 </div>
 <p>Now, we call the planner to compute the plan and execute it.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plan</span> <span class="o">=</span> <span class="n">move_group</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `go()` returns a boolean indicating whether the planning and execution was successful.</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">move_group</span><span class="o">.</span><span class="n">go</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="c1"># Calling `stop()` ensures that there is no residual movement</span>
 <span class="n">move_group</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 <span class="c1"># It is always good to clear your targets after planning with poses.</span>
-<span class="c1"># Note: there is no equivalent function for clear_joint_value_targets()</span>
+<span class="c1"># Note: there is no equivalent function for clear_joint_value_targets().</span>
 <span class="n">move_group</span><span class="o">.</span><span class="n">clear_pose_targets</span><span class="p">()</span>
 </pre></div>
 </div>
