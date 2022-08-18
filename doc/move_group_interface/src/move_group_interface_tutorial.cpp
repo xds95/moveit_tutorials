@@ -45,11 +45,13 @@
 
 #include <moveit_visual_tools/moveit_visual_tools.h>
 
+#define ONLY_MOVE 1
+
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "move_group_interface_tutorial");
   ros::NodeHandle node_handle;
-  ros::AsyncSpinner spinner(1);
+  ros::AsyncSpinner spinner(2);
   spinner.start();
 
   // BEGIN_TUTORIAL
@@ -60,7 +62,7 @@ int main(int argc, char** argv)
   // MoveIt operates on sets of joints called "planning groups" and stores them in an object called
   // the `JointModelGroup`. Throughout MoveIt the terms "planning group" and "joint model group"
   // are used interchangably.
-  static const std::string PLANNING_GROUP = "panda_arm";
+  static const std::string PLANNING_GROUP = "manipulator";
 
   // The :move_group_interface:`MoveGroup` class can be easily
   // setup using just the name of the planning group you would like to control and plan for.
@@ -80,7 +82,7 @@ int main(int argc, char** argv)
   // The package MoveItVisualTools provides many capabilties for visualizing objects, robots,
   // and trajectories in RViz as well as debugging tools such as step-by-step introspection of a script
   namespace rvt = rviz_visual_tools;
-  moveit_visual_tools::MoveItVisualTools visual_tools("panda_link0");
+  moveit_visual_tools::MoveItVisualTools visual_tools("elbow_joint");
   visual_tools.deleteAllMarkers();
 
   // Remote control is an introspection tool that allows users to step through a high level script
@@ -89,6 +91,7 @@ int main(int argc, char** argv)
 
   // RViz provides many types of markers, in this demo we will use text, cylinders, and spheres
   Eigen::Affine3d text_pose = Eigen::Affine3d::Identity();
+
   text_pose.translation().z() = 1.75;
   visual_tools.publishText(text_pose, "MoveGroupInterface Demo", rvt::WHITE, rvt::XLARGE);
 
@@ -108,24 +111,25 @@ int main(int argc, char** argv)
   // ^^^^^^^^^^^^^^^^^^^^^^^^^
   visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to start the demo");
 
-  // Planning to a Pose goal
-  // ^^^^^^^^^^^^^^^^^^^^^^^
-  // We can plan a motion for this group to a desired pose for the
-  // end-effector.
+// Planning to a Pose goal
+// ^^^^^^^^^^^^^^^^^^^^^^^
+// We can plan a motion for this group to a desired pose for the
+// end-effector.
+#if !ONLY_MOVE
   geometry_msgs::Pose target_pose1;
   target_pose1.orientation.w = 1.0;
   target_pose1.position.x = 0.28;
   target_pose1.position.y = -0.2;
   target_pose1.position.z = 0.5;
   move_group.setPoseTarget(target_pose1);
-
+#endif
   // Now, we call the planner to compute the plan and visualize it.
   // Note that we are just planning, not asking move_group
   // to actually move the robot.
   moveit::planning_interface::MoveGroupInterface::Plan my_plan;
 
   bool success = (move_group.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
-
+#if !ONLY_MOVE
   ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
   // Visualizing plans
@@ -187,8 +191,8 @@ int main(int argc, char** argv)
   // Let's specify a path constraint and a pose goal for our group.
   // First define the path constraint.
   moveit_msgs::OrientationConstraint ocm;
-  ocm.link_name = "panda_link7";
-  ocm.header.frame_id = "panda_link0";
+  ocm.link_name = "wrist_3_joint";
+  ocm.header.frame_id = "elbow_joint";
   ocm.orientation.w = 1.0;
   ocm.absolute_x_axis_tolerance = 0.1;
   ocm.absolute_y_axis_tolerance = 0.1;
@@ -232,7 +236,7 @@ int main(int argc, char** argv)
   visual_tools.publishTrajectoryLine(my_plan.trajectory_, joint_model_group);
   visual_tools.trigger();
   visual_tools.prompt("next step");
-
+#endif
   // When done with the path constraint be sure to clear it.
   move_group.clearPathConstraints();
 
@@ -255,6 +259,9 @@ int main(int argc, char** argv)
 
   target_pose3.position.y -= 0.2;
   waypoints.push_back(target_pose3);  // right
+
+  target_pose3.position.x += 0.2;
+  waypoints.push_back(target_pose3);  // front
 
   target_pose3.position.z += 0.2;
   target_pose3.position.y += 0.2;
@@ -284,6 +291,8 @@ int main(int argc, char** argv)
   for (std::size_t i = 0; i < waypoints.size(); ++i)
     visual_tools.publishAxisLabeled(waypoints[i], "pt" + std::to_string(i), rvt::SMALL);
   visual_tools.trigger();
+  visual_tools.prompt("Press 'next' to move");
+  move_group.move();
   visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");
 
   // Adding/Removing Objects and Attaching/Detaching Objects
