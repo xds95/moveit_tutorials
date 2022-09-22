@@ -127,8 +127,8 @@ int main(int argc, char** argv)
   // Note that we are just planning, not asking move_group
   // to actually move the robot.
   moveit::planning_interface::MoveGroupInterface::Plan my_plan;
-
-  bool success = (move_group.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+  bool success;
+  // bool success = (move_group.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
 #if !ONLY_MOVE
   ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
@@ -253,19 +253,25 @@ int main(int argc, char** argv)
 
   std::vector<geometry_msgs::Pose> waypoints;
   waypoints.push_back(target_pose3);
-
+  ROS_INFO_NAMED("tutorial", "target_pose3: %f %f %f", target_pose3.position.x, target_pose3.position.y,
+                 target_pose3.position.z);
   target_pose3.position.z -= 0.2;
   waypoints.push_back(target_pose3);  // down
-
+  ROS_INFO_NAMED("tutorial", "target_pose3: %f %f %f", target_pose3.position.x, target_pose3.position.y,
+                 target_pose3.position.z);
   target_pose3.position.y -= 0.2;
   waypoints.push_back(target_pose3);  // right
-
+  ROS_INFO_NAMED("tutorial", "target_pose3: %f %f %f", target_pose3.position.x, target_pose3.position.y,
+                 target_pose3.position.z);
   target_pose3.position.x += 0.2;
   waypoints.push_back(target_pose3);  // front
-
+  ROS_INFO_NAMED("tutorial", "target_pose3: %f %f %f", target_pose3.position.x, target_pose3.position.y,
+                 target_pose3.position.z);
   target_pose3.position.z += 0.2;
   target_pose3.position.y += 0.2;
   target_pose3.position.x -= 0.2;
+  ROS_INFO_NAMED("tutorial", "target_pose3: %f %f %f", target_pose3.position.x, target_pose3.position.y,
+                 target_pose3.position.z);
   waypoints.push_back(target_pose3);  // up and left
 
   // Cartesian motions are frequently needed to be slower for actions such as approach and retreat
@@ -292,7 +298,8 @@ int main(int argc, char** argv)
     visual_tools.publishAxisLabeled(waypoints[i], "pt" + std::to_string(i), rvt::SMALL);
   visual_tools.trigger();
   visual_tools.prompt("Press 'next' to move");
-  move_group.move();
+  my_plan.trajectory_ = trajectory; 
+  move_group.execute(my_plan);
   visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to continue the demo");
 
   // Adding/Removing Objects and Attaching/Detaching Objects
