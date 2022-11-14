@@ -314,7 +314,7 @@ int main(int argc, char** argv)
   // grasp motions. Here we demonstrate how to reduce the speed of the robot arm via a scaling factor
   // of the maxiumum speed of each joint. Note this is not the speed of the end effector point.
   move_group.setMaxVelocityScalingFactor(0.1); 
-  
+  # if 0
   // We want the Cartesian path to be interpolated at a resolution of 1 cm
   // which is why we will specify 0.01 as the max step in Cartesian
   // translation.  We will specify the jump threshold as 0.0, effectively disabling it.
@@ -325,6 +325,8 @@ int main(int argc, char** argv)
   const double eef_step = 0.01;
   double fraction = move_group.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
   ROS_INFO_NAMED("tutorial", "Visualizing plan 4 (Cartesian path) (%.2f%% acheived)", fraction * 100.0);
+
+
 
   // Visualize the plan in RViz
   visual_tools.deleteAllMarkers();
@@ -338,7 +340,20 @@ int main(int argc, char** argv)
   move_group.execute(my_plan);
   
   visual_tools.prompt("Press 'next' in the RvizVisualToolsGui window to once the collision object disapears");
+  #endif
 
+  
+  move_group.setStartState(*move_group.getCurrentState());
+  geometry_msgs::Pose another_pose;
+  another_pose.orientation.w = 1.0;
+  another_pose.position.x = target_pose3.position.x;
+  another_pose.position.y = target_pose3.position.y+0.5;
+  another_pose.position.z = target_pose3.position.z;
+  move_group.setPoseTarget(another_pose);
+  success = (move_group.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+  ROS_INFO_NAMED("tutorial", "Visualizing plan 5 (pose goal move around cuboid) %s", success ? "" : "FAILED");
+  ROS_INFO_NAMED("FUCK", "FUCK2");
+  move_group.execute(my_plan);
   // END_TUTORIAL
 
   ros::shutdown();
